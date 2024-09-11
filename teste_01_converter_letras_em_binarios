@@ -1,0 +1,25 @@
+def converter_texto(texto, base):
+  """
+  Converte cada caractere de um texto para a base desejada.
+
+  Args:
+    texto: A string a ser convertida.
+    base: A base para a conversão (2 para binário, 16 para hexadecimal, 10 para decimal).
+
+  Returns:
+    Uma lista com os valores convertidos de cada caractere.
+  """
+
+  valores_convertidos = []
+  for caractere in texto:
+    valor_ascii = ord(caractere)
+    valor_convertido = str(format(valor_ascii, f'0{base}b'))  # Formata para a base desejada
+    valores_convertidos.append(valor_convertido)
+  return valores_convertidos
+
+if __name__ == "__main__":
+  texto = input("Digite o texto a ser convertido: ")
+  base = int(input("Digite a base para a conversão (2 para binário, 16 para hexadecimal, 10 para decimal): "))
+
+  resultado = converter_texto(texto, base)
+  print(resultado)
